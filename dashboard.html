@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Greenfield Academy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 min-h-screen">
+  <div class="max-w-3xl mx-auto mt-10 p-8 bg-white rounded shadow">
+    <h1 class="text-2xl font-bold text-blue-700 mb-6 text-center">Admin Dashboard</h1>
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Add Student Achievement</h2>
+      <form id="addAchievementForm" class="space-y-3">
+        <input type="text" name="title" placeholder="Achievement Title" required class="w-full px-3 py-2 border rounded" />
+        <input type="text" name="student" placeholder="Student Name (and Class)" required class="w-full px-3 py-2 border rounded" />
+        <input type="file" name="image" accept="image/*" class="w-full" />
+        <button type="submit" class="w-full px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Add Achievement</button>
+      </form>
+      <div id="achievementSuccess" class="hidden text-green-700 mt-2">Achievement added!</div>
+    </div>
+    <div class="mb-8">
+      <h2 class="text-xl font-semibold mb-2">Edit Curriculum</h2>
+      <form id="editCurriculumForm" class="space-y-3">
+        <textarea name="curriculum" rows="4" class="w-full px-3 py-2 border rounded" placeholder="Update curriculum details here..."></textarea>
+        <button type="submit" class="w-full px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Save Curriculum</button>
+      </form>
+      <div id="curriculumSuccess" class="hidden text-green-700 mt-2">Curriculum updated!</div>
+    </div>
+    <a href="admin.html" class="block text-center text-blue-600 hover:underline mt-6">Logout</a>
+  </div>
+  <script src="dashboard.js"></script>
+</body>
+</html>
