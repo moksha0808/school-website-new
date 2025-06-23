@@ -31,16 +31,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Application form submission (dummy, replace with backend call)
+  // Application form submission (real API call)
   const appForm = document.getElementById('applicationForm');
   const formSuccess = document.getElementById('formSuccess');
   if (appForm && formSuccess) {
-    appForm.addEventListener('submit', function(e) {
+    appForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      // TODO: Replace with real API call
-      formSuccess.classList.remove('hidden');
-      appForm.reset();
-      setTimeout(() => formSuccess.classList.add('hidden'), 3000);
+      const name = appForm.name.value;
+      const age = appForm.age.value;
+      const studentClass = appForm.class.value;
+      const message = appForm.message.value;
+      try {
+        const res = await fetch('https://your-backend-url/apply', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, age, class: studentClass, message })
+        });
+        if (res.ok) {
+          formSuccess.classList.remove('hidden');
+          appForm.reset();
+          setTimeout(() => formSuccess.classList.add('hidden'), 3000);
+        } else {
+          alert('Submission failed. Please try again.');
+        }
+      } catch (err) {
+        alert('Submission failed. Please try again.');
+      }
     });
   }
 
@@ -52,3 +68,5 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Replace 'https://your-backend-url' with your deployed backend URL
